@@ -19,49 +19,49 @@ export const SERVICES: Service[] = [
   {
     id: 'hair',
     title: 'Hair Artistry',
-    description: 'Transform your look with our master stylists. From bespoke coloring to architectural cuts, we create hair that reflects your inner radiance.',
-    items: ['Bespoke Haircuts', 'Signature Balayage', 'Keratin Smoothing', 'Editorial Styling'],
+    description: 'Bespoke coloring and architectural cuts designed to reveal your inner radiance.',
+    items: ['Tailored Balayage', 'Precision Cutting', 'Editorial Styling', 'Scalp Rituals'],
     imagePrompts: [
-      '/assets/hair/hair_1.png',
-      '/assets/hair/hair_2.png',
-      '/assets/hair/hair_3.png',
-      '/assets/hair/hair_4.png'
+      'assets/hair/hair_1.png',
+      'assets/hair/hair_2.png',
+      'assets/hair/hair_3.png',
+      'assets/hair/hair_4.png'
     ]
   },
   {
     id: 'nails',
     title: 'Nail Couture',
-    description: 'A sanctuary for your hands and feet. Our artisans combine precision with luxury to deliver a flawless, high-gloss finish.',
-    items: ['Japanese Manicure', 'Gel Extensions', 'Artistic Nail Design', 'Luxury Pedicure'],
+    description: 'Where precision meets luxury. Experience a flawless high-gloss finish in every detail.',
+    items: ['Japanese Manicure', 'Artistic Design', 'Luxury Pedicure', 'Gel Extensions'],
     imagePrompts: [
-      '/assets/nails/nails_1.png',
-      '/assets/nails/nails_2.png',
-      'https://images.unsplash.com/photo-1604654894610-df490982570d?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=800'
+      'assets/nails/nails_1.png',
+      'assets/nails/nails_2.png',
+      'https://picsum.photos/seed/nails3/800/800',
+      'https://picsum.photos/seed/nails4/800/800'
     ]
   },
   {
-    id: 'brows-lashes',
+    id: 'brows',
     title: 'Eyes & Brows',
-    description: 'Enhance your natural gaze with meticulous brow shaping and lash extensions. Every detail is refined for a sophisticated look.',
+    description: 'Meticulous shaping and sophisticated enhancement to frame your natural beauty.',
     items: ['Brow Lamination', 'Bespoke Tinting', 'Lash Lifting', 'Volume Extensions'],
     imagePrompts: [
-      'https://images.unsplash.com/photo-1522337660859-02fbefce4ff4?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800'
+      'https://picsum.photos/seed/brows1/800/800',
+      'https://picsum.photos/seed/brows2/800/800',
+      'https://picsum.photos/seed/brows3/800/800',
+      'https://picsum.photos/seed/brows4/800/800'
     ]
   },
   {
-    id: 'skincare',
+    id: 'skin',
     title: 'Skin & Spa',
-    description: 'Indulge in transformative skin treatments. Our spa experiences are designed to rejuvenate your complexion and soothe your soul.',
-    items: ['Signature Hydrafacial', 'Advanced Skin Peel', 'Aromatherapy Massage', 'Glow Facial'],
+    description: 'Transformative treatments and serene rituals to rejuvenate your complexion and spirit.',
+    items: ['Signature Hydrafacial', 'Advanced Peels', 'Aromatherapy', 'Glow Facials'],
     imagePrompts: [
-      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1512290923902-8a9f81dc2069?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1519735810506-be859678c18a?auto=format&fit=crop&q=80&w=800'
+      'https://picsum.photos/seed/skin1/800/800',
+      'https://picsum.photos/seed/skin2/800/800',
+      'https://picsum.photos/seed/skin3/800/800',
+      'https://picsum.photos/seed/skin4/800/800'
     ]
   }
 ];
