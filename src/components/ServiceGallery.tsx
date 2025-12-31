@@ -1,54 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 interface ServiceGalleryProps {
-    prompt: string;
+    prompt?: string;
     index: number;
     title?: string;
 }
 
-const ServiceGallery: React.FC<ServiceGalleryProps> = ({ prompt, index, title }) => {
-    const [imageUrl, setImageUrl] = useState<string | null>(null);
-    const [loading, setLoading] = useState(true);
+const ServiceGallery: React.FC<ServiceGalleryProps> = ({ prompt, title }) => {
+    // If prompt is null/empty, we consider it missing immediately
+    const [hasError, setHasError] = useState(false);
 
-    useEffect(() => {
-        let isMounted = true;
-        const fetchImage = async () => {
-            // If prompt is a path or URL, use it directly
-            if (prompt.startsWith('http') || prompt.startsWith('/')) {
-                setImageUrl(prompt);
-            } else {
-                // Fallback to placeholder for generic prompts
-                const seed = title ? title.replace(/\s/g, '').toLowerCase() : prompt.replace(/\s/g, '');
-                const placeholder = `https://picsum.photos/seed/${seed}${index}/800/800`;
-                setImageUrl(placeholder);
-            }
-            setLoading(false);
-        };
-
-        fetchImage();
-        return () => { isMounted = false; };
-    }, [prompt, index]);
+    // If we have no image source, or if we encountered an error loading it
+    const showPlaceholder = !prompt || hasError;
 
     return (
         <div className="relative group w-full aspect-square overflow-hidden rounded-2xl bg-stone-100 shadow-xl transition-all duration-700 hover:scale-[1.02]">
-            {loading ? (
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-8 h-8 border-2 border-stone-200 border-t-stone-400 rounded-full animate-spin"></div>
-                </div>
-            ) : (
+            {!showPlaceholder ? (
                 <img
-                    src={imageUrl!}
-                    alt="Service Gallery Grid"
+                    src={prompt}
+                    alt={title || "Beauty Service"}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                    onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        if (!target.src.includes('picsum.photos')) {
-                            const seed = title ? title.replace(/\s/g, '').toLowerCase() : prompt.slice(-10);
-                            target.src = `https://picsum.photos/seed/${seed}${index}/800/800`;
-                        }
-                    }}
+                    onError={() => setHasError(true)}
                 />
+            ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-stone-200 text-stone-400">
+                    <span className="text-sm font-light tracking-widest uppercase">Image Coming Soon</span>
+                </div>
             )}
+
+            {/* Overlay effect */}
             <div className="absolute inset-0 bg-stone-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
     );

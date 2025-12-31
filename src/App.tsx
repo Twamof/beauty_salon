@@ -4,6 +4,8 @@ import Navigation from './components/Navigation';
 import ServiceGallery from './components/ServiceGallery';
 import { SERVICES, Service } from './constants';
 
+import heroVideo from './beauty-salon.mp4';
+
 const App: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll();
@@ -39,11 +41,27 @@ const App: React.FC = () => {
             <main className="relative z-10">
                 {/* HERO SECTION */}
                 <section className="h-screen flex flex-col items-center justify-center relative overflow-hidden px-4">
+                    {/* Background Video */}
+                    <div className="absolute inset-0 z-0 overflow-hidden">
+                        <video
+                            className="w-full h-full object-cover opacity-80"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        >
+                            <source src={heroVideo} type="video/mp4" />
+                        </video>
+                        {/* Overlay to ensure text readability */}
+                        <div className="absolute inset-0 bg-[#fdfbf7]/60" />
+                    </div>
+
+
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="text-center"
+                        className="text-center relative z-10"
                     >
                         <span className="text-[12px] uppercase tracking-[0.4em] text-stone-400 mb-6 block">Elegance Redefined</span>
                         <h1 className="text-7xl md:text-9xl text-stone-800 leading-tight mb-8 serif">
